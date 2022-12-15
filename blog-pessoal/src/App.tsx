@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './paginas/home/home';
-import {Grid} from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import Navbar from './componentes/estaticos/navbar/navbar';
 import Footer from './componentes/estaticos/footer/footer';
 import Login from './paginas/login/login';
@@ -16,7 +16,8 @@ import DeletarTema from './componentes/temas/deletarTema/DeletarTema';
 import DeletarPostagem from './componentes/postagens/deletarPostagem/DeletarPostagem';
 import { Provider } from 'react-redux';
 import store from './store/store';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -25,10 +26,10 @@ import store from './store/store';
 function App() {
   return (
     <Provider store={store}>
+      <ToastContainer />
       <Router>
         <Navbar />
-       
-          <div style={{ minHeight: '100vh' }}>
+        <div style={{ minHeight: '100vh' }}>
           <Routes>
 
             <Route path="/" element={<Login />} />
@@ -54,9 +55,9 @@ function App() {
             <Route path="/deletarPostagem/:id" element={<DeletarPostagem />} />
 
             <Route path="/deletarTema/:id" element={<DeletarTema />} />
-            </Routes>
-          </div>
-      
+          </Routes>
+        </div>
+
         <Footer />
       </Router>
     </Provider>
